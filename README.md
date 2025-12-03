@@ -7,61 +7,47 @@ A comprehensive Java-based console quiz application designed for conducting onli
 
 ## 📋 Files Structure
 
-### **1. Main.java** - Entry Point
-- **Purpose**: Main entry point for the application
+### **1. OnlineExam.java** - Main Application
+- **Purpose**: Main entry point and quiz manager for the application
 - **Functionality**: 
-  - Creates a Quiz object
-  - Starts the quiz
-- **Code**:
-  ```java
-  public class Main {
-      public static void main(String[] args) {
-          Quiz quiz = new Quiz();
-          quiz.startQuiz();
-      }
-  }
-  ```
+  - Initializes 10 DSU-related MCQ questions
+  - Manages the quiz execution loop
+  - Handles user input validation
+  - Calculates scores and displays results
+- **Key Attributes**:
+  - `questions[]`: Array of 10 Question objects
+  - `score`: Running score (0-10)
+  - `correctCount`: Number of correct answers
+  - `wrongCount`: Number of wrong answers
+- **Key Methods**:
+  - `initializeQuestions()`: Loads all 10 MCQs about DSU
+  - `main()`: Entry point and quiz execution loop
+  - Input validation with error handling
 
 ### **2. Question.java** - Question Model
 - **Purpose**: Represents a single Multiple Choice Question
 - **Attributes**:
   - `questionText`: The question string
   - `options`: Array of 4 answer options
-  - `correctAnswerIndex`: Index of the correct answer (0-3)
+  - `correctOptionIndex`: Index of the correct answer (0-3)
 - **Methods**:
   - `getQuestionText()`: Returns the question text
   - `getOptions()`: Returns all answer options
-  - `getCorrectAnswerIndex()`: Returns correct answer index
-  - `isAnswerCorrect(int selectedOption)`: Validates if selected answer is correct
+  - `getCorrectOptionIndex()`: Returns correct answer index
 - **Usage**: Each question is stored as a Question object in the questions array
-
-### **3. Quiz.java** - Quiz Manager
-- **Purpose**: Manages the entire quiz flow, scoring, and result calculation
-- **Key Attributes**:
-  - `questions[]`: Array of 10 Question objects
-  - `score`: Running score (0-100)
-  - `correctCount`: Number of correct answers
-  - `wrongCount`: Number of wrong answers
-  - `userAnswers[]`: Stores user's answers for each question
-- **Key Methods**:
-  - `initializeQuestions()`: Loads all 10 MCQs
-  - `startQuiz()`: Main quiz execution loop
-  - `displayQuestion()`: Shows question and options (1-4)
-  - `getUserAnswer()`: Gets and validates user input
-  - `displayResults()`: Shows final results and performance rating
 
 ---
 
 ## ✨ Features
 
-✅ **10 Multiple Choice Questions** - Diverse topics (geography, science, literature, history)
+✅ **10 Multiple Choice Questions** - DSU-related questions (establishment, founders, accreditation, programs, etc.)
 ✅ **Console-Based Interface** - Simple, text-based interaction
 ✅ **Option Numbering 1-4** - User-friendly numbering system
-✅ **Automatic Scoring** - 10 points per correct answer (100 total)
-✅ **Instant Feedback** - Shows if answer is correct/wrong immediately
-✅ **Input Validation** - Handles invalid inputs gracefully
+✅ **Automatic Scoring** - Scores out of 10 (1 point per correct answer)
+✅ **Instant Feedback** - Shows if answer is correct/wrong with the correct option
+✅ **Input Validation** - Handles invalid inputs gracefully with error messages
 ✅ **Detailed Results** - Shows correct count, wrong count, score, and percentage
-✅ **Performance Rating** - Provides feedback based on score
+✅ **Performance Rating** - Provides feedback based on score (EXCELLENT, GOOD, AVERAGE, NEEDS IMPROVEMENT)
 ✅ **Error Handling** - Validates all user inputs
 
 ---
@@ -74,12 +60,12 @@ A comprehensive Java-based console quiz application designed for conducting onli
 
 ### Compilation
 ```bash
-javac Main.java Question.java Quiz.java
+javac Question.java OnlineExam.java
 ```
 
 ### Execution
 ```bash
-java Main
+java OnlineExam
 ```
 
 ---
@@ -90,7 +76,7 @@ java Main
 
 1. **Start the Application**
    ```
-   java Main
+   java OnlineExam
    ```
 
 2. **Welcome Screen**
@@ -104,8 +90,8 @@ java Main
    - You'll immediately see if your answer is correct or wrong
 
 4. **Review Feedback**
-   - Correct Answer: Shows "✓ Correct!" message
-   - Wrong Answer: Shows "✗ Wrong! Correct answer was option X"
+   - Correct Answer: Shows "Correct!" message
+   - Wrong Answer: Shows "Wrong! The correct answer was: [option text]"
 
 5. **Complete All 10 Questions**
    - Continue answering all questions sequentially
@@ -113,10 +99,9 @@ java Main
 6. **View Results**
    - After submitting the last answer, results screen appears
    - Shows:
-     - Total Questions: 10
+     - Final Score: [Your Score]/10
      - Correct Answers: [Your Count]
      - Wrong Answers: [Your Count]
-     - Final Score: [Your Score]/100
      - Percentage: [Your %]
      - Performance Rating
 
@@ -125,86 +110,86 @@ java Main
 ## 🎯 Scoring System
 
 - **Total Questions**: 10
-- **Points per Correct Answer**: 10
-- **Total Possible Score**: 100
-- **Formula**: `Score = Correct Answers × 10`
+- **Points per Correct Answer**: 1
+- **Total Possible Score**: 10
+- **Formula**: `Score = Correct Answers`
 
 ### Example Scoring
-- 10 Correct = 100/100 (100%)
-- 8 Correct = 80/100 (80%)
-- 5 Correct = 50/100 (50%)
+- 10 Correct = 10/10 (100%)
+- 8 Correct = 8/10 (80%)
+- 5 Correct = 5/10 (50%)
 
 ---
 
 ## 🏆 Performance Ratings
 
-The application evaluates performance based on final score:
+The application evaluates performance based on final score (out of 10):
 
 | Score Range | Rating | Message |
 |-------------|--------|---------|
-| 80-100 | 🎉 EXCELLENT | Outstanding Performance! |
-| 60-79 | 👍 GOOD | Well Done! |
-| 40-59 | - | Average Performance |
-| 0-39 | - | Needs Improvement |
+| 8-10 | 🎉 EXCELLENT | Outstanding Performance! |
+| 6-7 | 👍 GOOD | Well Done! |
+| 4-5 | - | Average Performance |
+| 0-3 | - | Needs Improvement |
 
 ---
 
 ## 📚 Questions Included
 
-1. **What is the capital of France?**
-   - Options: London, Berlin, **Paris**, Madrid
-   - Answer: 3 (Paris)
+1. **When was DSU officially established as a university (as a private university)?**
+   - Options: 2005, 2010, **2014**, 2018
+   - Answer: 3 (2014)
 
-2. **Which planet is the largest in our solar system?**
-   - Options: Saturn, **Jupiter**, Neptune, Uranus
-   - Answer: 2 (Jupiter)
+2. **Who founded the parent institution of DSU (the original institutions)?**
+   - Options: Mahatma Gandhi Vidya Peetha Trust, **Late Sri Dayananda Sagar**, Government of Karnataka, AICTE
+   - Answer: 2 (Late Sri Dayananda Sagar)
 
-3. **What is the smallest prime number?**
-   - Options: 0, 1, **2**, 3
-   - Answer: 3 (2)
+3. **Which trust governs DSU and its institutions?**
+   - Options: Visvesvaraya Technological Trust, Karnataka Private University Trust, **Mahatma Gandhi Vidya Peetha Trust**, Dayananda Sagar Academic Trust
+   - Answer: 3 (Mahatma Gandhi Vidya Peetha Trust)
 
-4. **Who wrote 'Romeo and Juliet'?**
-   - Options: Charles Dickens, **William Shakespeare**, Jane Austen, Leo Tolstoy
-   - Answer: 2 (William Shakespeare)
+4. **On which road is DSU's main campus (Harohalli / Devarakaggalahalli) located?**
+   - Options: Hosur Road, **Kanakapura Road**, Mysore Road, Outer Ring Road
+   - Answer: 2 (Kanakapura Road)
 
-5. **What is the chemical symbol for Gold?**
-   - Options: Go, Gd, **Au**, Ag
-   - Answer: 3 (Au)
+5. **Which of these streams is not among the broad categories of courses offered by DSU (UG/PG/PhD)?**
+   - Options: Engineering, Pharmacy / Health Sciences, Law, **Veterinary Sciences**
+   - Answer: 4 (Veterinary Sciences)
 
-6. **In which year did the Titanic sink?**
-   - Options: **1912**, 1915, 1920, 1905
-   - Answer: 1 (1912)
+6. **Which accreditation / recognition does DSU hold?**
+   - Options: UGC only, AICTE only, **NAAC A+**, None of the above
+   - Answer: 3 (NAAC A+)
 
-7. **What is the largest ocean on Earth?**
-   - Options: Atlantic Ocean, Indian Ocean, Arctic Ocean, **Pacific Ocean**
-   - Answer: 4 (Pacific Ocean)
+7. **From which academic year did DSU begin its academic activities (after establishment)?**
+   - Options: 2013–14, 2014–15, **2015–16**, 2016–17
+   - Answer: 3 (2015–16)
 
-8. **How many continents are there?**
-   - Options: 5, 6, **7**, 8
-   - Answer: 3 (7)
+8. **Which of the following programs are offered by DSU as per its schools?**
+   - Options: **B.Tech, MBA, B.Pharm, M.Sc**, B.Tech only, MBA only, M.Phil and MBBS only
+   - Answer: 1 (B.Tech, MBA, B.Pharm, M.Sc)
 
-9. **What is the speed of light?**
-   - Options: **300,000 km/s**, 150,000 km/s, 450,000 km/s, 200,000 km/s
-   - Answer: 1 (300,000 km/s)
+9. **Under which act / law was DSU created as a private university?**
+   - Options: **Karnataka Act No. 20 of 2013**, Karnataka Act No. 15 of 2010, UGC Private Universities Act 2009, Indian Universities Act 1956
+   - Answer: 1 (Karnataka Act No. 20 of 2013)
 
-10. **Which country is the largest by area?**
-    - Options: Canada, United States, **Russia**, China
-    - Answer: 3 (Russia)
+10. **Which of these is part of DSU's vision or core emphasis (as per its institutional objectives)?**
+    - Options: Only teaching, Teaching and Research only, **Teaching, Research, Innovation and Entrepreneurship**, Sports and Entertainment only
+    - Answer: 3 (Teaching, Research, Innovation and Entrepreneurship)
 
 ---
 
 ## 🏗️ Architecture & Design
 
 ### Object-Oriented Design
-- **Question Class**: Encapsulates question data (text, options, correct answer)
-- **Quiz Class**: Handles quiz logic, scoring, and user interaction
-- **Main Class**: Simple entry point that delegates to Quiz
+- **Question Class**: Encapsulates question data (text, options, correct answer index)
+- **OnlineExam Class**: Handles quiz logic, scoring, user interaction, and initialization of questions
+- **Main Method**: Located in OnlineExam class, serves as entry point
 
 ### Data Flow
 ```
-Main.java
+OnlineExam.java (main method)
     ↓
-Quiz.java (creates Question objects)
+initializeQuestions() (creates Question objects)
     ↓
 Question.java (stores individual questions)
     ↓
@@ -215,7 +200,7 @@ User Input → Answer Validation → Score Calculation → Results Display
 1. **Single Responsibility**: Each class has one clear purpose
 2. **Encapsulation**: Question class encapsulates question details
 3. **Reusability**: Question model can be extended for other quizzes
-4. **Input Validation**: Robust error handling for invalid inputs
+4. **Input Validation**: Robust error handling for invalid inputs with retry logic
 5. **User-Friendly**: 1-4 numbering instead of 0-3 for better UX
 
 ---
