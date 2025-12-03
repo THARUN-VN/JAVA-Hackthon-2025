@@ -208,41 +208,42 @@ User Input → Answer Validation → Score Calculation → Results Display
 ## 💡 Sample Execution
 
 ```
-========================================
-   Welcome to the Online Exam Quiz!
-========================================
-You have 10 questions to answer.
-Enter the option number (1, 2, 3, or 4) for each question.
-
-Question 1: What is the capital of France?
-  1. London
-  2. Berlin
-  3. Paris
-  4. Madrid
-Your answer (1-4): 3
-✓ Correct!
-
-Question 2: Which planet is the largest in our solar system?
-  1. Saturn
-  2. Jupiter
-  3. Neptune
-  4. Uranus
-Your answer (1-4): 2
-✓ Correct!
+Welcome to the Online Exam!
+There are 10 multiple choice questions.
+Please enter the number corresponding to your answer (1-4).
+--------------------------------------------------
+Question 1: When was DSU officially established as a university (as a private university)?
+1. 2005
+2. 2010
+3. 2014
+4. 2018
+Your answer: 3
+Correct!
+--------------------------------------------------
+Question 2: Who founded the parent institution of DSU (the original institutions)?
+1. Mahatma Gandhi Vidya Peetha Trust
+2. Late Sri Dayananda Sagar
+3. Government of Karnataka
+4. AICTE
+Your answer: 2
+Correct!
+--------------------------------------------------
 
 [... continues for remaining questions ...]
 
-========================================
-        QUIZ RESULTS
-========================================
-Total Questions: 10
+==================================================
+Exam Finished!
+==================================================
+
+Final Score: 8 / 10
 Correct Answers: 8
 Wrong Answers: 2
-Final Score: 80/100
-Percentage: 80%
-========================================
+Percentage: 80.0%
+==================================================
+
 Result: GOOD! 👍
-========================================
+
+==================================================
 ```
 
 ---
@@ -258,11 +259,10 @@ Result: GOOD! 👍
 
 ## 📂 File Sizes & Compilation
 
-- **Main.java**: ~200 bytes
+- **OnlineExam.java**: ~3.2 KB
 - **Question.java**: ~400 bytes
-- **Quiz.java**: ~3.5 KB
-- **Total Source**: ~4.1 KB
-- **Compiled Classes**: ~8 KB
+- **Total Source**: ~3.6 KB
+- **Compiled Classes**: ~6 KB
 
 ---
 
